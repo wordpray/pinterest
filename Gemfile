@@ -17,9 +17,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml', '~> 5.0', '>= 5.0.1'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'simple_form', '~> 3.5'
+gem 'devise', '~> 4.3'
+gem 'pry-rails'
+gem 'paperclip', '~> 5.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do

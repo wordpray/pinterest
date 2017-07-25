@@ -1,0 +1,27 @@
+!!! 5
+%html
+  %head
+    %title Pinterest
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navber.navber-default
+      .container
+        .navbar-brand= link_to "ホームフィード", root_path
+
+        - if user_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "ピックアップ"
+            %li= link_to "マイページ"
+            %li= link_to "お知らせ"
+
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Sign Up", new_user_registration_path
+            %li= link_to "Sign In", new_user_session_path
+    .container
+      -flash.each do |name,msg|
+        = content_tag :div, msg, class: "alert alert-info"
+
+      = yield
