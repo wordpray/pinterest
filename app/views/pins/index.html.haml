@@ -3,5 +3,31 @@
     .box.panel.panel-default
       = link_to (image_tag pin.image.url), pin
       .panel-body
-        %h2= link_to pin.title, pin
+        %button.btn.btn-danger{"data-target" => "#exampleModalLong", "data-toggle" => "modal", :type => "button"}
+          保存
+        / Modal
+        #exampleModalLong.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLongTitle", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog{:role => "document"}
+            .modal-content
+              .modal-body
+                .container-fluid
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                  .row
+                    .col-md-6
+                      = image_tag pin.image.url
+                    .col-md-4
+                      %h2#exampleModalLongTitle.modal-title ボードを選択
+                    .col-md-4
+                      %h5 人気のボード
+                    .col-md-4
+                      %h5 すべてのボード
+                    .col-md-4
+                      新規ボードを作成
 
+                  .row
+                    .col-8.col-sm-6
+                      = pin.title
+              .modal-footer
+                %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+                %button.btn.btn-danger{:type => "button"} 保存
