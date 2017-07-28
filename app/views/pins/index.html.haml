@@ -1,8 +1,9 @@
 #pins.transitions-enabled
   - @pins.each do |pin|
     .box.panel.panel-default
-      = link_to (image_tag pin.image.url), pin
-      .panel-body
+      .text-btn
+        = link_to "…"
+      .index_modal-btn
         %button.btn.btn-danger{"data-target" => "#exampleModalLong", "data-toggle" => "modal", :type => "button"}
           保存
         / Modal
@@ -31,3 +32,8 @@
               .modal-footer
                 %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
                 %button.btn.btn-danger{:type => "button"} 保存
+      .index_shere-pin
+        %button.btn.btn-default{"data-target" => "#exampleModalLong", "data-toggle" => "modal", :type => "button"}
+          %i.fa.fa-grav
+      .panel-body
+        = link_to (image_tag pin.image.url), pin

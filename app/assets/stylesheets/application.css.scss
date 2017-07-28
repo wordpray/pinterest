@@ -31,6 +31,7 @@ nav {
     a {
       color: #BD1E23;
       font-weight: bold;
+      font-size: 10.3px;
       &:hover {
         text-decoration: none;
       }
@@ -43,13 +44,19 @@ nav {
   width: 100%;
   .box {
     margin: 10px;
-    width: 236px;
+    padding-bottom: 30px;
+    width: 256px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     border-radius: 7px;
-    text-align: center;
+    font-weight: bold;
+    background: rgba(0,0,0,0.01);
+    position: relative;
     img {
       max-width: 100%;
       height: auto;
+      -moz-border-radius:7px;
+      -webkit-border-radius:7px;
+      border-radius:7px;
     }
     h2 {
       font-size: 22px;
@@ -58,6 +65,21 @@ nav {
       a {
         color: #474747;
       }
+    }
+    .index_modal-btn{
+      position: absolute;
+      right: 25px;
+      top: 25px;
+    }
+    .index_shere-pin{
+      position: absolute;
+      left: 25px;
+      top: 25px;
+    }
+    .text-btn{
+      position: absolute;
+      right: 15px;
+      bottom: 20px;
     }
     .user {
       font-size: 12px;
@@ -87,6 +109,9 @@ nav {
       width: 100%;
       display: block;
       margin: 0 auto;
+      -moz-border-radius:7px;
+      -webkit-border-radius:7px;
+      border-radius:7px;
     }
   }
   .panel-body {
