@@ -1,0 +1,53 @@
+#user_show
+  .header
+    %i.fa.fa-wrench.fa-2x
+    %i.fa.fa-plane.fa-2x
+    %i.fa.fa-ellipsis-h.fa-2x
+  .body
+    .user-infomation
+      .user-infomation_name
+        %p
+          - if user_signed_in?
+            = current_user.name
+      .user-infomation_follow
+        .followers
+          10
+          %p フォロワー
+        .follow-up
+          10
+          %p フォロー中
+      .user-infomation_user-image
+        = image_tag @pin.image.url(:medium)
+    .user-boards
+      .user-boards_header
+        %p ボード
+        %p ピン
+        %p 試してみた
+      .user-boards_body
+        .panel-wrapper
+          .panel-body
+            .new-board_image
+              %i.fa.fa-plus-circle.fa-3x
+            .panel-footer
+              %p 新規ボードを作成
+          - @pins.each do |pin|
+            .panel-body
+              .user-boards_body-image
+                = image_tag pin.image.url
+                .panel-footer
+                  %p aaa
+                  45 pin
+    .user-boards_secret
+      .user-boards_secret-header
+        %i.fa.fa-key.fa-2x
+        %p シークレットボード
+        %br/
+        %p このボードはあなた（及びあなたが招待したユーザー）だけが見ることができます。 詳細
+      .user-boards_secret-body
+        - @pins.each do |pin|
+          .panel-body
+            .user-boards_body-image
+              = image_tag pin.image.url
+            .panel-footer
+              %p aaa
+              45 pin

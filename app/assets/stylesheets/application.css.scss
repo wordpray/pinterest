@@ -15,10 +15,11 @@
  *= require_self
  */
 
+@import "font-awesome";
 @import "bootstrap";
 
 body {
-  background: #E9E9E9;
+  background: rgba(255, 255, 255, 0.97);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,16 +28,49 @@ h1, h2, h3, h4, h5, h6 {
 
 nav {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
-  .navbar-brand {
-    a {
-      color: #BD1E23;
-      font-weight: bold;
-      font-size: 10.3px;
-      &:hover {
-        text-decoration: none;
+  .navber-header{
+    height: 79px;
+    width: 100%;
+    .navbar-brand {
+      &_row{
+        text-align: center;
+        .fa-pinterest{
+          height: 28px;
+          width: 28px;
+          color: #BD1E23;
+        }
+        p{
+          font-size: 10.3px;
+          color: #b5b5b5;
+        }
+        a {
+          font-weight: bold;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    .navbar-right{
+      color: #b5b5b5;
+      &_btn{
+        height: 46px;
+        text-align: center;
+        p{
+          font-size: 10.3px;
+          color: #b5b5b5;
+        }
+        a{
+          color: #b5b5b5;
+        }
       }
     }
   }
+}
+
+.row{
+  width: 100%;
+  margin: 0 auto;
 }
 
 #pins {
@@ -44,13 +78,31 @@ nav {
   width: 100%;
   .box {
     margin: 10px;
-    padding-bottom: 30px;
+    // padding-bottom: 30px;
     width: 256px;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
     border-radius: 7px;
     font-weight: bold;
-    background: rgba(0,0,0,0.01);
+    background: rgba(0,0,0,0);
     position: relative;
+    float: left;
+    border-style: none;
+    .wrapper :hover{
+      background: rgba(0,0,0,0.05);
+    }
+    // & :hover .index_modal-btn{
+    //   display: block;
+    // }
+    // & :hover .index_shere-pin{
+    //   display: block;
+    // }
+    // & :hover .text-btn{
+    //   display: block;
+    // }
+    .panel-footer{
+      height: 40px;
+      border-style: none;
+      background: rgba(0,0,0,0);
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -60,8 +112,9 @@ nav {
     }
     h2 {
       font-size: 22px;
+      font-weight: bold;
       margin: 0;
-      padding: 25px 10px;
+      padding: 25px 25px 13px;
       a {
         color: #474747;
       }
@@ -70,22 +123,131 @@ nav {
       position: absolute;
       right: 25px;
       top: 25px;
+      // display: none;
     }
     .index_shere-pin{
       position: absolute;
       left: 25px;
       top: 25px;
+      // display: none;
     }
     .text-btn{
       position: absolute;
       right: 15px;
       bottom: 20px;
+      // display: none;
     }
     .user {
       font-size: 12px;
       border-top: 1px solid #EAEAEA;
       padding: 15px;
       margin: 0;
+    }
+    .modal-content{
+      width: 660px;
+      &_body{
+        height: 540px;
+        width: 660px;
+        .row-left{
+          width: 330px;
+          height: 540px;
+          margin: 0 auto;
+          float: left;
+          text-align: center;
+          line-height: 540px;
+          img{
+            max-width: 216px;
+          }
+        }
+        .row-right{
+          width: 330px;
+          height: 540px;
+          float: left;
+          &_body{
+            overflow: auto;
+            .popularity-boards{
+              &_header{
+                color: #555;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -.22px;
+                line-height: 16px;
+                margin-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 23px;
+              }
+            }
+            .all-boards{
+              &_header{
+                color: #555;
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: -.22px;
+                line-height: 16px;
+                margin-top: 5px;
+                padding-bottom: 5px;
+                padding-left: 23px;
+              }
+            }
+          }
+          a{
+            height: 52px;
+            width: 300px;
+            line-height: 52px;
+            list-style: none;
+            cursor: pointer;
+            display: block;
+            -webkit-font-smoothing: antialiased;
+            padding: 2px 23px;
+            position: relative;
+            display: flex;
+            text-decoration: none;
+            color: #555;
+            &:hover{
+              background-color: #f5f5f5;
+              &:hover .btn-danger {
+                display: block;
+              }
+            }
+            .btn-danger{
+              height: 34px;
+              width: 54px;
+              display: none;
+              position: absolute;
+              top: 9px;
+              right: 9px;
+              // background-color: #b7071b;
+            }
+            p{
+              font-size: 16px;
+              font-weight: bold;
+            }
+            img{
+              height: 36px;
+              width: 36px;
+              margin: 0 12px;
+            }
+          }
+        }
+      }
+      &_footer{
+        height: 64px;
+        line-height: 64px;
+        font-weight: bold;
+        color: #555;
+        display: flex;
+        font-size: 18px;
+        a{
+          height: 64px;
+          width: 300px;
+          i{
+            line-height: 64px;
+            color: #bd081c;
+            margin-left: 23px;
+            margin-right: 12px;
+          }
+        }
+      }
     }
   }
 }
@@ -136,6 +298,196 @@ nav {
   }
 }
 
+#pins_create{
+  .row{
+    background-image: url("https://s.pinimg.com/webapp/style/images/bg_multi_case_grid_no_text_white-e3747f04.jpg");
+  }
+}
+
 textarea {
   min-height: 250px;
 }
+
+#user_show{
+  .header{
+    height: 72px;
+    width: 800px;
+    margin: 0 auto;
+    color: #b5b5b5;
+    line-height: 72px;
+    i{
+      width: 48px;
+      line-height: 72px;
+      text-align: center;
+    }
+    // .fa{
+    //   height: 50px;
+    //   width: 50px;
+    // }
+  }
+  .user-infomation{
+    height: 192px;
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    &_name{
+      width: 400px;
+      height: 60px;
+      line-height: 60px;
+      p{
+        font-size: 41.3px;
+        font-weight: bold;
+        color: #555
+      }
+    }
+    &_follow{
+      height: 60px;
+      width: 200px;
+      font-size: 13.8px;
+      color: #555;
+      display: flex;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      p{
+        color: #b5b5b5
+      }
+    }
+    &_user-image{
+      img{
+        height: 168px;
+        width: 168px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 85% 15%;
+      }
+    }
+  }
+  .user-boards{
+    width: 100%;
+    &_header{
+      height: 44px;
+      width: 800px;
+      margin: 0 auto;
+      display: flex;
+      p{
+        font-size: 15.5px;
+        color: #b5b5b5;
+        font-weight: bold;
+        line-height: 44px;
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+    }
+    &_body{
+      width: 1200px;
+      margin: 0 auto;
+      .panel-wrapper :hover{
+        background-color: #f5f5f5;
+        border-radius: 7px;
+      }
+      .panel-body{
+        height: 295px;
+        width: 300px;
+        float: left;
+        .new-board_image{
+          height: 200px;
+          width: 270px;
+          background-color: #efefef;
+          border-radius: 7px;
+          text-align: center;
+          line-height: 200px;
+          color: #bd081c;
+        }
+        img{
+          height: 200px;
+          width: 100%;
+          -webkit-border-radius: 10px;
+          object-fit: cover;
+          object-position: 85% 15%;
+        }
+        .panel-footer{
+          font-size: 10.3px;
+          color: #b5b5b5;
+          background: rgba(0,0,0,0);
+          border-style: none;
+          p{
+            font-size: 18.1px;
+            color: #555;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  .user-boards_secret{
+    width: 100%;
+    &-header{
+      height: 44px;
+      width: 800px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      display: flex;
+      line-height: 44px;
+      i{
+        line-height: 44px;
+        height: 32px;
+        width: 32px;
+        color: #555;
+      }
+    }
+    &-body{
+      width: 1200px;
+      margin: 0 auto;
+      .panel-body{
+        height: 295px;
+        width: 300px;
+        float: left;
+        img{
+          height: 200px;
+          width: 100%;
+          -webkit-border-radius: 10px;
+          object-fit: cover;
+          object-position: 85% 15%;
+        }
+        .panel-footer{
+          font-size: 10.3px;
+          color: #b5b5b5;
+          background: rgba(0,0,0,0);
+          p{
+            font-size: 18.1px;
+            color: #555;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
