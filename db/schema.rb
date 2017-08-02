@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730005504) do
+ActiveRecord::Schema.define(version: 20170802060849) do
+
+  create_table "board_pins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "pin_id"
+    t.integer  "board_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_board_pins_on_board_id", using: :btree
+    t.index ["pin_id", "board_id"], name: "index_board_pins_on_pin_id_and_board_id", using: :btree
+    t.index ["pin_id"], name: "index_board_pins_on_pin_id", using: :btree
+  end
 
   create_table "boards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -24,12 +34,24 @@ ActiveRecord::Schema.define(version: 20170730005504) do
     t.text     "description",        limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "board_id"
+    t.integer  "user_id"
+    t.index ["board_id"], name: "index_pins_on_board_id", using: :btree
     t.index ["user_id"], name: "index_pins_on_user_id", using: :btree
+  end
+
+  create_table "user_bords", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "board_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_user_bords_on_board_id", using: :btree
+    t.index ["user_id", "board_id"], name: "index_user_bords_on_user_id_and_board_id", using: :btree
+    t.index ["user_id"], name: "index_user_bords_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -81,4 +103,10 @@ ActiveRecord::Schema.define(version: 20170730005504) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
+  add_foreign_key "board_pins", "boards"
+  add_foreign_key "board_pins", "pins"
+  add_foreign_key "pins", "boards"
+  add_foreign_key "pins", "users"
+  add_foreign_key "user_bords", "boards"
+  add_foreign_key "user_bords", "users"
 end
