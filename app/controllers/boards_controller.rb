@@ -1,4 +1,10 @@
 class BoardsController < ApplicationController
+
+  def index
+    @boards = Boads.all.order("created_at DESC")
+    @board = Boads.new
+  end
+
   def new
     @board = Boads.new
   end

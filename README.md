@@ -47,5 +47,17 @@
 |user_id|references|null: false, foreign_key: true|
 
 ## Association
+- has_many : board_pins
+- has_many : boards, through: :board_pins
 - belongs_to : user
+
+
+## board_pins
+|Column|Type|Options|
+|------|----|-------|
+|pin_id|references|null: false, foreign_key: true|
+|boards_id|references|null: false, foreign_key: true|
+
+## Association
+- belongs_to : pin
 - belongs_to : board

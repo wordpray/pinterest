@@ -86,7 +86,7 @@ nav {
     position: relative;
     float: left;
     border-style: none;
-    .wrapper :hover{
+    .panel-wrapper :hover{
       background: rgba(0,0,0,0.05);
     }
     // & :hover .index_modal-btn{
@@ -123,19 +123,19 @@ nav {
       position: absolute;
       right: 25px;
       top: 25px;
-      // display: none;
+      display: none;
     }
     .index_shere-pin{
       position: absolute;
       left: 25px;
       top: 25px;
-      // display: none;
+      display: none;
     }
     .text-btn{
       position: absolute;
       right: 15px;
       bottom: 20px;
-      // display: none;
+      display: none;
     }
     .user {
       font-size: 12px;
@@ -313,12 +313,17 @@ textarea {
     height: 72px;
     width: 800px;
     margin: 0 auto;
-    color: #b5b5b5;
     line-height: 72px;
-    i{
-      width: 48px;
-      line-height: 72px;
-      text-align: center;
+    a{
+      color: #b5b5b5;
+      a :hover{
+        font-size: 20px;
+      }
+      i{
+        width: 48px;
+        line-height: 72px;
+        text-align: center;
+      }
     }
     // .fa{
     //   height: 50px;
@@ -466,28 +471,14 @@ textarea {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#user_edit{
+  .container{
+    display: flex;
+    .row-left{
+      width: 400px;
+    }
+    .row-right{
+      width: 734px;
+    }
+  }
+}

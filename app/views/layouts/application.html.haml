@@ -9,11 +9,14 @@
     %nav.navber.navber-default
       .container
         .navber-header
+          / = simple_form_for @pin do |f|
           .navbar-brand
             .navbar-brand_row
               = link_to root_path do
                 %i.fa.fa-pinterest.fa-2x
                 %p ホームフィード
+            / .form-group
+            /   = f.input :title
 
           - if user_signed_in?
             %ul.nav.navbar-nav.navbar-right
@@ -22,7 +25,7 @@
                   %i.fa.fa-compass.fa-2x
                   %p ピックアップ
               %li.navbar-right_btn
-                = link_to root_path do
+                %a{href: "/users/#{current_user.id}"}
                   %i.fa.fa-user.fa-2x
                   %p マイページ
               %li.navbar-right_btn
